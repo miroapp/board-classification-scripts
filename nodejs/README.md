@@ -43,9 +43,12 @@ To complete the classification label for "unclassified" boards in bulk using thi
   `boards:write`<br>
   `organizations:read`<br>
   `organizations:teams:read`<br><br>
-  and then click on __Install app and get OAuth token__
 
 <img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/app_scopes.png" alt="Set app scopes screenshot" width="700" />
+
+5.4. Click on __Install app and get OAuth token__
+
+<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/install_and_get_token_screenshot.png" alt="Install and and get token screenshot" width="700" />
 
 ## Support
 
