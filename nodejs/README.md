@@ -66,8 +66,8 @@ This repository contains scripts to bulk update the classification label for "un
 This script will show you the existing classification labels in your Miro account. It will also create a CSV file called `classification_labels.csv` within the folder `board_classification_labels` in the directory where the script files lives in your local machine.
 
 6.1. Enter the information asked by the script when prompted:
-  * `Enter your Miro Organization ID`: enter your Miro Organization ID (see step 5.7)
-  * `Enter your Miro REST API Token`: enter your Miro REST API Token (see step 5.6)
+  * `Enter your Miro Organization ID`: enter your Miro Organization ID (see step 5.7) and hit "Enter"
+  * `Enter your Miro REST API Token`: enter your Miro REST API Token (see step 5.6) and hit "Enter"
 
 6.2. After the script `node get_classification.js` has run, review the classification labels from the list shown in  the command line or open the `classification_labels.csv` file within the folder `board_classification_labels`.
 
@@ -78,11 +78,11 @@ This script will show you the existing classification labels in your Miro accoun
 7.1. Run `node classification.js`. The `classification.js` script allows you to run the script in "TEST MODE" so you can test it without applying any changes. To run the script in "TEST MODE" simply respond to this particular question when prompted by the script
 
 7.2. Enter the information asked by the script when prompted:
-  * `Is this a TEST Run? (y/n)`: Respond `y` if you want to run the script in "TEST MODE"
-  * `Enter the ID of the "Classification Label" to be used to classify the unclassified Boards`: enter the ID of the desired classification label that should be applied to classify the unclassified boards (see step 6.2)
-  * `Enter your Miro Organization ID`: enter your Miro Organization ID (see step 5.7)
-  * `Enter your Miro REST API Token`: Enter your Miro REST API Token (see step 5.6)
-  * `Should this script create a full report of existing boards? (y = slower / n = faster)`: choose whether you want to have detailed reports of existing boards and their current classification labels before applying changes
+  * `Is this a TEST Run? (y/n)`: Respond `y` if you want to run the script in "TEST MODE" and hit "Enter"
+  * `Enter the ID of the "Classification Label" to be used to classify the unclassified Boards`: enter the ID of the desired classification label that should be applied to classify the unclassified boards (see step 6.2) and hit "Enter"
+  * `Enter your Miro Organization ID`: enter your Miro Organization ID (see step 5.7) and hit "Enter"
+  * `Enter your Miro REST API Token`: Enter your Miro REST API Token (see step 5.6) and hit "Enter"
+  * `Should this script create a full report of existing boards? (y = slower / n = faster)`: choose whether you want to have detailed reports of existing boards and their current classification labels before applying changes or not and hit "Enter"
 
 7.3. After the script `classification.js` has run, review the summary presented in the command line and review the reports created within the folder `classification_output_files` in the directory where the script files live.
 
