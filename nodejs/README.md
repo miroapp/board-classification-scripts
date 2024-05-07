@@ -73,7 +73,7 @@ This script will show you the existing classification labels in your Miro accoun
   * `Enter your Miro Organization ID`: enter your Miro Organization ID (see step 5.7) and hit "Enter"
   * `Enter your Miro REST API Token`: enter your Miro REST API Token (see step 5.6) and hit "Enter"
 
-<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/get_labels_script_screenshot.png" alt="Delete app screenshot" width="903" />
+<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/get_labels_script_screenshot1.png" alt="Delete app screenshot" width="903" />
 
 6.2. After the script `node get_classification.js` has run, review the classification labels from the list shown in  the command line or open the `classification_labels.csv` file within the folder `board_classification_labels`.
 
