@@ -32,7 +32,7 @@ To complete the classification label for "unclassified" boards in bulk using thi
 
 5.1. To create a new application on your Miro Enterprise account using the Enterprise Developer team, navigate to [Profile settings](https://help.miro.com/hc/en-us/articles/4408879513874-Profile-settings) > Your apps, agree to the terms and conditions, and click on Create new app.
 
-[Create App Image](https://help.miro.com/hc/article_attachments/4775661957266)
+<img src="https://help.miro.com/hc/article_attachments/4775661957266" alt="Create app screenshot" />
 
 ## Support
 
