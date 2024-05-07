@@ -15,16 +15,19 @@ This repository contains scripts to bulk update the classification label for "un
 ## Step 2. Create directory for your script files
 
 2.1. In your local machine create a folder in the desired location where you will store the files within this repository.
+
 2.2. Download this repository as .zip and extract the files within into the directory created, or clone this repository into the desired location in your local machine.
 
 ## Step 3. Create a Developer Team in Miro
 
 3.1. If you already have a Miro Developer Team, you may skip this step.
+
 3.2. If you do not have yet a Miro Developer Team, please visit this [Miro Help](https://help.miro.com/hc/en-us/articles/4766759572114-Enterprise-Developer-teams) page and follow the instructions within the article to create an Enterprise Developer Team for your Miro Enterprise Account.
 
 ## Step 4. Make sure you have the "Content Admin" Role in your Miro Enterprise Account
 
 4.1. To be able to check all Boards within your Miro Enterprise Account (including Boards you have not been invited to) you need to have the role "Content Admin" assigned. To check this, proceed as explained in this [Miro Help](https://help.miro.com/hc/en-us/articles/360017571194-Roles-in-Miro#h_01HQ8889WQP2N8PCPRHTPTDNZR) article.
+
 4.2. If you do not appear within the users assigned to the "Content Admin" role, proceed to add yourself to the "Content Admin" uses as explained in the Help article mentioned above.
 
 ## Step 5. Create a Miro App to get a REST API Token
