@@ -50,7 +50,7 @@ This repository contains scripts to bulk update the classification label for "un
 
 5.4. Click on __Install app and get OAuth token__
 
-<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/install_and_get_token_screenshot.png" alt="Install and and get token screenshot" width="700" />
+<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/install_and_get_token_screenshot1.png" alt="Install and and get token screenshot" width="700" />
 
 5.5. Select any team within your Enteprise account, the token will apply for the entire account based on the scopes set on step 5.3. and click on __Add__
 
