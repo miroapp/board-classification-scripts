@@ -38,12 +38,14 @@ To complete the classification label for "unclassified" boards in bulk using thi
 
 <img src="https://help.miro.com/hc/article_attachments/4775661957266" alt="Create app screenshot" />
 
-5.3. On the app page, scroll down and select the following scopes of access to grant to your REST API token:<br>
+5.3. On the app page, scroll down and select the following scopes of access to grant to your REST API token:<br><br>
   `boards:read`<br>
   `boards:write`<br>
   `organizations:read`<br>
   `organizations:teams:read`<br><br>
   and then click on __Install app and get OAuth token__
+
+<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/rest_api_scopes.png" alt="Set app scopes screenshot" />
 
 ## Support
 
