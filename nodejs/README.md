@@ -36,7 +36,7 @@ To complete the classification label for "unclassified" boards in bulk using thi
 
 5.2. Insert the app name, select your Developer team for the application and click on __Create app__.
 
-<img src="https://help.miro.com/hc/article_attachments/4775666891026" alt="Create app screenshot" width="700" />
+<img src="https://help.miro.com/hc/article_attachments/4775666891026" alt="Create app screenshot" width="502" />
 
 5.3. On the app page, scroll down and select the following scopes of access to grant to your REST API token:<br><br>
   `boards:read`<br>
