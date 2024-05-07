@@ -52,11 +52,11 @@ To complete the classification label for "unclassified" boards in bulk using thi
 
 5.5. Select any team within your Enteprise account, the token will apply for the entire account based on the scopes set on step 5.3. and click on __Add__
 
-<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/select_team_screenshot.png" alt="Install and and get token screenshot" width="400" />
+<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/select_team_screenshot.png" alt="Install and and get token screenshot" width="502" />
 
 5.6. You will see the REST API token. Copy this token and store it in a secure place. You will need it when running the scripts.
 
-<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/get_access_token_screenshot.png" alt="Install and and get token screenshot" width="400" />
+<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/get_access_token_screenshot.png" alt="Install and and get token screenshot" width="502" />
 
 ## Step 6. Make sure you have the "Content Admin" Role in your Miro Enterprise Account
 
