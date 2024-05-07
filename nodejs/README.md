@@ -40,10 +40,10 @@ To complete the classification label for "unclassified" boards in bulk using thi
 
 5.3. On the app page, scroll down and select the following scopes of access to grant to your REST API token and then click on __Install app and get OAuth token__
   <ul>
-    <li>`boards:read`</li>
-    <li>`boards:write`</li>
-    <li>`organizations:read`</li>
-    <li>`organizations:teams:read`</li>
+    <li><pre>boards:read</pre></li>
+    <li><pre>boards:write</pre></li>
+    <li><pre>organizations:read</pre></li>
+    <li><pre>organizations:teams:read</pre></li>
   </ul>
 
 ## Support
