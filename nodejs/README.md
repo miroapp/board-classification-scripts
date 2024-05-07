@@ -60,7 +60,7 @@ To complete the classification label for "unclassified" boards in bulk using thi
 
 5.7. Store your Miro Organization ID it in a secure place as well. You will need it when running the scripts. You will find your Miro Organization ID in the URL of the page where you received the REST API token
 
-<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/get_miro_org_id_screenshot.png" alt="Install and and get token screenshot" width="502" />
+<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/get_miro_org_id_screenshot.png" alt="Install and and get token screenshot" width="700" />
 
 ## Step 6. Run scripts using the command line (CLI)
 
