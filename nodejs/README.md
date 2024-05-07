@@ -8,7 +8,7 @@ This repository contains scripts to bulk update the classification label for "un
 
 ## Step 1. Install Node.js
 
-1.1. If you already have Node.js installed in your local machine, you may skip this step.
+1.1. If you already have Node.js installed in your local machine, you may skip this step.<br>
 1.2. If you do not have Node.js installed, proceed to download it [here](https://nodejs.org/en/download/) and proceed to install Node with the downloaded file. (Feel free to use your command line for the installation if preferred).
 
 ## Step 2. Create directory for your script files
