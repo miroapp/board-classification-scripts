@@ -36,7 +36,7 @@ This repository contains scripts to bulk update the classification label for "un
 
 <img src="https://help.miro.com/hc/article_attachments/4775661957266" alt="Accept app terms screenshot" width="700" />
 
-5.2. Insert the app name, select your Developer team for the application and click on __Create app__.
+5.2. Insert the desired app name (e.g. Classification Scripts), select your Developer team for the application and click on __Create app__.
 
 <img src="https://help.miro.com/hc/article_attachments/4775666891026" alt="Create app screenshot" width="502" />
 
@@ -91,6 +91,20 @@ This script will show you the existing classification labels in your Miro accoun
 7.3. After the script `classification.js` has run, review the summary presented in the command line and review the reports created within the folder `classification_output_files` in the directory where the script files live.
 
 7.4. To confirm all unclassified Boards have been successfully classified, please go to `https://miro.com/app/settings/company/{YOUR_MIRO_ORG_ID}/data-classification/` to confirm that there are no Boards left to classify (fastest option) or re-run this script with TEST MODE turned ON (slower option)
+
+## Step 8. Revoke REST API token
+
+The steps in this section are optional but recommended.
+
+After you have confirmed all unclassified have been now successfully classified, you may want to revoke the REST API token if you don't plan to use these functionalities in the future. 
+
+8.1. To revoke the REST API token, go to __[Profile settings](https://help.miro.com/hc/en-us/articles/4408879513874-Profile-settings) > Your apps__ (in your Miro account)
+
+8.2. Locate the app created on step 5.2 and click on it
+
+8.3. Scroll to the bottom of the page and click on the button outlined in red that reads __Delete app__
+
+<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/delete_app_screenshot.png" alt="Delete app screenshot" width="903" />
 
 ## Support
 
