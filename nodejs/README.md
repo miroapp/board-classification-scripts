@@ -73,7 +73,7 @@ This script will show you the existing classification labels in your Miro accoun
   * `Enter your Miro Organization ID`: enter your Miro Organization ID (see step 5.7) and hit "Enter"
   * `Enter your Miro REST API Token`: enter your Miro REST API Token (see step 5.6) and hit "Enter"
 
-<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/get_labels_script_screenshot1.png" alt="Delete app screenshot" width="903" />
+<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/get_labels_script_screenshot1.png" alt="get_labels script screenshot" width="903" />
 
 6.2. After the script `node get_classification.js` has run, review the classification labels from the list shown in  the command line or open the `classification_labels.csv` file within the folder `board_classification_labels`.
 
@@ -89,6 +89,8 @@ This script will show you the existing classification labels in your Miro accoun
   * `Enter your Miro Organization ID`: enter your Miro Organization ID (see step 5.7) and hit "Enter"
   * `Enter your Miro REST API Token`: Enter your Miro REST API Token (see step 5.6) and hit "Enter"
   * `Should this script create a full report of existing boards? (y = slower / n = faster)`: choose whether you want to have detailed reports of existing boards and their current classification labels before applying changes or not and hit "Enter"
+
+<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/classification_script_questions_screenshot.png" alt="classification script screenshot" width="903" />
 
 7.3. After the script `classification.js` has run, review the summary presented in the command line and review the reports created within the folder `classification_output_files` in the directory where the script files live.
 
