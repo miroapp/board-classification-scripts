@@ -32,11 +32,11 @@ To complete the classification label for "unclassified" boards in bulk using thi
 
 5.1. To create a new application on your Miro Enterprise account using the Enterprise Developer team, navigate to [Profile settings](https://help.miro.com/hc/en-us/articles/4408879513874-Profile-settings) > Your apps, agree to the terms and conditions, and click on Create new app.
 
-<img src="https://help.miro.com/hc/article_attachments/4775661957266" alt="Create app screenshot" width="700" />
+<img src="https://help.miro.com/hc/article_attachments/4775661957266" alt="Accept app terms screenshot" width="700" />
 
 5.2. Insert the app name, select your Developer team for the application and click on __Create app__.
 
-<img src="https://help.miro.com/hc/article_attachments/4775661957266" alt="Create app screenshot" width="700" />
+<img src="https://help.miro.com/hc/article_attachments/4775666891026" alt="Create app screenshot" width="700" />
 
 5.3. On the app page, scroll down and select the following scopes of access to grant to your REST API token:<br><br>
   `boards:read`<br>
