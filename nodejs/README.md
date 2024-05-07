@@ -96,7 +96,7 @@ This script will show you the existing classification labels in your Miro accoun
 
 The steps in this section are optional but recommended.
 
-After you have confirmed all unclassified have been now successfully classified, you may want to revoke the REST API token if you don't plan to use these functionalities in the future. 
+After you have confirmed all unclassified boards have been successfully classified, you may want to revoke the REST API token if you don't plan to use these functionalities in the future. 
 
 8.1. To revoke the REST API token, go to __[Profile settings](https://help.miro.com/hc/en-us/articles/4408879513874-Profile-settings) > Your apps__ (in your Miro account)
 
