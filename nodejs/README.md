@@ -28,7 +28,7 @@ This repository contains scripts to bulk update the classification label for "un
 
 4.1. To be able to check all Boards within your Miro Enterprise Account (including Boards you have not been invited to) you need to have the role "Content Admin" assigned. To check this, proceed as explained in this [Miro Help](https://help.miro.com/hc/en-us/articles/360017571194-Roles-in-Miro#h_01HQ8889WQP2N8PCPRHTPTDNZR) article.
 
-4.2. If you do not appear within the users assigned to the "Content Admin" role, proceed to add yourself to the "Content Admin" uses as explained in the Help article mentioned above.
+4.2. If you do not appear within the users assigned to the "Content Admin" role, proceed to add yourself to the "Content Admin" users as explained in the Help article mentioned in step 4.1.
 
 ## Step 5. Create a Miro App to get a REST API Token
 
