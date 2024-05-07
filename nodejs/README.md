@@ -32,7 +32,7 @@ This repository contains scripts to bulk update the classification label for "un
 
 ## Step 5. Create a Miro App to get a REST API Token
 
-5.1. To create a new application on your Miro Enterprise account using the Enterprise Developer team, navigate to __[Profile settings](https://help.miro.com/hc/en-us/articles/4408879513874-Profile-settings) > Your apps__, agree to the terms and conditions, and click on __+ Create new app_.
+5.1. To create a new application on your Miro Enterprise account using the Enterprise Developer team, navigate to __[Profile settings](https://help.miro.com/hc/en-us/articles/4408879513874-Profile-settings) > Your apps__, agree to the terms and conditions, and click on __+ Create new app__.
 
 <img src="https://help.miro.com/hc/article_attachments/4775661957266" alt="Accept app terms screenshot" width="700" />
 
