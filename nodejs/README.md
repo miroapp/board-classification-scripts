@@ -58,9 +58,22 @@ To complete the classification label for "unclassified" boards in bulk using thi
 
 <img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/get_access_token_screenshot.png" alt="Install and and get token screenshot" width="502" />
 
-## Step 6. Make sure you have the "Content Admin" Role in your Miro Enterprise Account
+5.7. Store your Miro Organization ID it in a secure place as well. You will need it when running the scripts. You will find your Miro Organization ID in the URL of the page where you received the REST API token
 
-4.1. To be able to check all Boards within your Miro Enterprise Account (including Boards you have not
+<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/get_miro_org_id_screenshot.png" alt="Install and and get token screenshot" width="502" />
+
+## Step 6. Run scripts using the command line (CLI)
+
+6.1. In your command line interface run `node get_classification.js`. This script will show you the existing classification labels in your Miro account. It will also create a CSV file called `classification_labels.csv` within the folder `board_classification_labels` in the directory where the script files lives in your local machine.
+
+6.1. Enter the information asked by the script:
+  6.1.1. Your Miro Organization ID: you will find this information in the URL of the page where
+
+6.2. Review the classification labels from the list shown in  the command line or open the "classification_labels.csv" file within the folder "board_classification_labels".
+
+6.3. Identify the label you want to use to classify the unclassified boards (you will be asked for the ID of the desired label on the next step
+
+6.4. Run `node classification.js`
 
 ## Support
 
