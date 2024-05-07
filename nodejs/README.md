@@ -77,7 +77,7 @@ This script will show you the existing classification labels in your Miro accoun
 
 <img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/get_labels_script_screenshot1.png" alt="get_labels script screenshot" width="903" />
 
-6.4. After the script `node get_classification.js` has run, review the classification labels from the list shown in  the command line or open the `classification_labels.csv` file within the folder `board_classification_labels`.
+6.4. After the script `get_classification.js` has run, review the classification labels from the list shown in  the command line or open the `classification_labels.csv` file within the folder `board_classification_labels`.
 
 6.5. Identify the label you want to use to classify the unclassified boards (you will be asked for the ID of the desired label on the next steps)
 
