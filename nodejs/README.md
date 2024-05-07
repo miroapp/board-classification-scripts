@@ -52,11 +52,11 @@ This repository contains scripts to bulk update the classification label for "un
 
 <img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/select_team_screenshot.png" alt="Install and and get token screenshot" width="502" />
 
-5.6. You will see the REST API token. Copy this token and store it in a secure place. You will need it when running the scripts.
+5.6. You will see the __REST API token__. Copy this token and store it in a secure place. You will need it when running the scripts.
 
 <img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/get_access_token_screenshot.png" alt="Install and and get token screenshot" width="502" />
 
-5.7. Store your Miro Organization ID it in a secure place as well. You will need it when running the scripts. You will find your Miro Organization ID in the URL of the page where you received the REST API token
+5.7. Store your __Miro Organization ID__ it in a secure place as well. You will need it when running the scripts. You will find your __Miro Organization ID__ in the URL of the page where you received the REST API token
 
 <img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/get_miro_org_id_screenshot.png" alt="Install and and get token screenshot" width="903" />
 
