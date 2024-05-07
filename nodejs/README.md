@@ -66,18 +66,20 @@ This repository contains scripts to bulk update the classification label for "un
 
 ## Step 6. Run script `get_labels.js` using the command line (CLI)
 
-6.1. In your command line interface run `node get_labels.js`. 
+6.1. In your command line interface navigate to the directory where you have placed the script files (see step 2.2) 
+
+6.2. In your command line interface run `node get_labels.js`. 
 This script will show you the existing classification labels in your Miro account. It will also create a CSV file called `classification_labels.csv` within the folder `board_classification_labels` in the directory where the script files lives in your local machine.
 
-6.1. Enter the information asked by the script when prompted:
+6.3. Enter the information asked by the script when prompted:
   * `Enter your Miro Organization ID`: enter your Miro Organization ID (see step 5.7) and hit "Enter"
   * `Enter your Miro REST API Token`: enter your Miro REST API Token (see step 5.6) and hit "Enter"
 
 <img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/get_labels_script_screenshot1.png" alt="get_labels script screenshot" width="903" />
 
-6.2. After the script `node get_classification.js` has run, review the classification labels from the list shown in  the command line or open the `classification_labels.csv` file within the folder `board_classification_labels`.
+6.4. After the script `node get_classification.js` has run, review the classification labels from the list shown in  the command line or open the `classification_labels.csv` file within the folder `board_classification_labels`.
 
-6.3. Identify the label you want to use to classify the unclassified boards (you will be asked for the ID of the desired label on the next steps)
+6.5. Identify the label you want to use to classify the unclassified boards (you will be asked for the ID of the desired label on the next steps)
 
 ## Step 7. Run script `classification.js` using the command line (CLI)
 
@@ -85,7 +87,7 @@ This script will show you the existing classification labels in your Miro accoun
 
 7.2. Enter the information asked by the script when prompted:
   * `Is this a TEST Run? (y/n)`: Respond `y` if you want to run the script in "TEST MODE" and hit "Enter"
-  * `Enter the ID of the "Classification Label" to be used to classify the unclassified Boards`: enter the ID of the desired classification label that should be applied to classify the unclassified boards (see step 6.2) and hit "Enter"
+  * `Enter the ID of the "Classification Label" to be used to classify the unclassified Boards`: enter the ID of the desired classification label that should be applied to classify the unclassified boards (see step 6.4) and hit "Enter"
   * `Enter your Miro Organization ID`: enter your Miro Organization ID (see step 5.7) and hit "Enter"
   * `Enter your Miro REST API Token`: Enter your Miro REST API Token (see step 5.6) and hit "Enter"
   * `Should this script create a full report of existing boards? (y = slower / n = faster)`: choose whether you want to have detailed reports of existing boards and their current classification labels before applying changes or not and hit "Enter"
