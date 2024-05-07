@@ -2,8 +2,6 @@
 
 This repository contains scripts to bulk update the classification label for "unclassified" boards in JavaScript (Node.js).
 
-To complete the classification label for "unclassified" boards in bulk using this scripts, you need to perform 2 steps:
-
 ## Requirements
 
 * [NodeJS 16.x or higher installed](https://nodejs.org/en/download/)
@@ -62,19 +60,34 @@ To complete the classification label for "unclassified" boards in bulk using thi
 
 <img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/get_miro_org_id_screenshot.png" alt="Install and and get token screenshot" width="903" />
 
-## Step 6. Run scripts using the command line (CLI)
+## Step 6. Run script `get_labels.js` using the command line (CLI)
 
-6.1. In your command line interface run `node get_classification.js`. This script will show you the existing classification labels in your Miro account. It will also create a CSV file called `classification_labels.csv` within the folder `board_classification_labels` in the directory where the script files lives in your local machine.
+6.1. In your command line interface run `node get_labels.js`. 
+This script will show you the existing classification labels in your Miro account. It will also create a CSV file called `classification_labels.csv` within the folder `board_classification_labels` in the directory where the script files lives in your local machine.
 
-6.1. Enter the information asked by the script:
-  6.1.1. Your Miro Organization ID: you will find this information in the URL of the page where
+6.1. Enter the information asked by the script when prompted:
+  * `Enter your Miro Organization ID`: enter your Miro Organization ID (see step 5.7)
+  * `Enter your Miro REST API Token`: enter your Miro REST API Token (see step 5.6)
 
-6.2. Review the classification labels from the list shown in  the command line or open the "classification_labels.csv" file within the folder "board_classification_labels".
+6.2. After the script `node get_classification.js` has run, review the classification labels from the list shown in  the command line or open the `classification_labels.csv` file within the folder `board_classification_labels`.
 
-6.3. Identify the label you want to use to classify the unclassified boards (you will be asked for the ID of the desired label on the next step
+6.3. Identify the label you want to use to classify the unclassified boards (you will be asked for the ID of the desired label on the next steps
 
-6.4. Run `node classification.js`
+## Step 7. Run script `classification.js` using the command line (CLI)
+
+7.1. Run `node classification.js`. The `classification.js` script allows you to run the script in "TEST MODE" so you can test it without applying any changes. To run the script in "TEST MODE" simply respond to this particular question when prompted by the script
+
+7.2. Enter the information asked by the script when prompted:
+  * `Is this a TEST Run? (y/n)`: Respond `y` if you want to run the script in "TEST MODE"
+  * `Enter the ID of the "Classification Label" to be used to classify the unclassified Boards`: enter the ID of the desired classification label that should be applied to classify the unclassified boards (see step 6.2)
+  * `Enter your Miro Organization ID`: enter your Miro Organization ID (see step 5.7)
+  * `Enter your Miro REST API Token`: Enter your Miro REST API Token (see step 5.6)
+  * `Should this script create a full report of existing boards? (y = slower / n = faster)`: choose whether you want to have detailed reports of existing boards and their current classification labels before applying changes
+
+7.3. After the script `classification.js` has run, review the summary presented in the command line and review the reports created within the folder `classification_output_files` in the directory where the script files live.
+
+7.4. To confirm all unclassified Boards have been successfully classified, please go to `https://miro.com/app/settings/company/{YOUR_MIRO_ORG_ID}/data-classification/` to confirm that there are no Boards left to classify (fastest option) or re-run this script with TEST MODE turned ON (slower option)
 
 ## Support
 
-If you have any questions or need assistance setting up this application, please reach out to your Miro Customer Success Manager or dedicated Miro Solutions Engineer.
+If you have any questions or need assistance setting up this application, please reach out to your Miro Customer Success Manager, Onboarding Consultant, Technical Architect or dedicated Miro Solutions Engineer.
