@@ -273,7 +273,8 @@ async function runClassificationScript() {
         }
         else {
             console.log(`# Setting Board Classification ONLY for "NOT YET CLASSIFIED" Boards within Team ${teamId} (Team ${teamIndex + 1} out of ${teamsLength}) - Already classified Boards will not be touched ...`);
-            teamsSuccessfullyClassified[teamId] = { team_id: teamId, team_name: teams[teamId].team_name, number_boards_to_classify: teams[teamId].unclassified_boards.length, number_unclassified_boards_successfully_updated: '0 (Test Mode ON)' };
+            teamsSuccessfullyClassified[teamId] = { team_id: teamId, team_name: teams[teamId].team_name, number_unclassified_boards_successfully_updated: '0 (Test Mode ON)' };
+            if (DOWNLOAD_FULL_REPORT_OF_EXISTING_BOARDS) { teamsSuccessfullyClassified[teamId].number_boards_to_classify = teams[teamId].unclassified_boards.length }
             processedUrls = [];
             processedUrls.push(`https://api.miro.com/v2/orgs/${MIRO_ORG_ID}/teams/${teamId}/data-classification`);
             delete setUnclassifiedBoardsRemainingTeams[teamId];
