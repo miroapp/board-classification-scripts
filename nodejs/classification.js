@@ -232,9 +232,17 @@ async function runClassificationScript() {
                             }
                         }
                         else {
+                            setUnclassifiedBoardsProcessedItems[teamId] = {};
                             if (processedUrls.indexOf(value.url) === -1) {
                                 let batchData = await value.json();
-                                teamsSuccessfullyClassified[teamId] = { team_id: teamId, team_name: teams[teamId].team_name, number_boards_to_classify: teams[teamId].unclassified_boards.length, number_unclassified_boards_successfully_updated: batchData.numberUpdatedBoards };
+                                teamsSuccessfullyClassified[teamId] = { 
+                                    team_id: teamId,
+                                    team_name: teams[teamId].team_name,
+                                    number_unclassified_boards_successfully_updated: batchData.numberUpdatedBoards 
+                                };
+                                if (DOWNLOAD_FULL_REPORT_OF_EXISTING_BOARDS) {
+                                    teamsSuccessfullyClassified[teamId].number_boards_to_classify = teams[teamId].unclassified_boards.length;
+                                }
                                 boardsSuccessfullyClassified = boardsSuccessfullyClassified + batchData.numberUpdatedBoards;
                                 processedUrls.push(value.url);
                                 console.log(`### All "NOT YET CLASSIFIED" Boards in Team ${teamId} (Team ${teamIndex + 1} out of ${teamsLength}) were successfully updated (Number of Updated Boards: ${batchData.numberUpdatedBoards}) - Already classified Boards were not touched ####`);
@@ -263,7 +271,7 @@ async function runClassificationScript() {
                         console.error(`Failed to fetch - API URL --> ${failedUrl}:`, reason);
                     }
                 }
-                console.log(`Processed teams: ${Object.keys(getUnclassifiedBoardsProcessedItems[teamId]).length} out of ${totalItems.length} in Team ${teamId} - Team ${teamIndex + 1} out of ${teamsLength} teams`);
+                console.log(`Processed teams: ${Object.keys(setUnclassifiedBoardsProcessedItems).length} out of ${totalItems.length} in Team ${teamId} - Team ${teamIndex + 1} out of ${teamsLength} teams`);
             } 
             catch (error) {
                 console.error(error);
