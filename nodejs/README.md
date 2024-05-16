@@ -100,7 +100,7 @@ This script will show you the existing classification labels in your Miro accoun
 
 7.3. After the script `classification.js` has run, review the summary presented in the command line and review the reports created within the folder `classification_output_files` in the directory where the script files live.
 
-7.4. To confirm all unclassified Boards have been successfully classified, please go to `https://miro.com/app/settings/company/{YOUR_MIRO_ORG_ID}/data-classification/` (replace __{YOUR_MIRO_ORG_ID}__ in the URL with your Miro OrgID from step 5.7) to confirm that there are no Boards left to classify (fastest option) or re-run this script with TEST MODE turned ON (slower option)
+7.4. To confirm all unclassified Boards have been successfully classified, please go to `https://miro.com/app/settings/company/{YOUR_MIRO_ORG_ID}/data-classification/` (replace __{YOUR_MIRO_ORG_ID}__ in the URL with your Miro Organization ID from step 5.7) to confirm that there are no Boards left to classify (fastest option) or re-run this script with TEST MODE turned ON (slower option)
 
 ## Step 8. Revoke REST API token
 
