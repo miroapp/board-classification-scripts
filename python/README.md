@@ -85,7 +85,7 @@ This script will show you the existing classification labels in your Miro accoun
 
 6.5. Identify the label you want to use to classify the unclassified boards (you will be asked for the ID of the desired label on the next steps)
 
-## Step 7. Run script `classification.js` using the command line (CLI)
+## Step 7. Run script `classification.py` using the command line (CLI)
 
 7.1. Run `python classification.py` (or `python3 classification.py`). The `classification.py` script allows you to run the script in "TEST MODE" so you can test it without applying any changes. To run the script in "TEST MODE" simply respond to this particular question when prompted by the script
 
