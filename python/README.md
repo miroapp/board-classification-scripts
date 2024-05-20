@@ -4,7 +4,7 @@ This repository contains scripts to bulk update the classification label for "un
 
 ## Requirements
 
-* [NodeJS 16.x or higher installed](https://nodejs.org/en/download/)
+* [Python 3.x.x installed](https://www.python.org/downloads/)
 * You must be a __Company Admin__ in your Miro account, or at least the user generating the token must be a __Company Admin__ in your Miro account (see steps 3 to 5)
 * You must have the role __Content Admin__ assigned, or at least the user generating the token must have the role __Content Admin__ assigned (see step 4 below)
 
