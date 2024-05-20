@@ -403,7 +403,6 @@ async function runClassificationScript() {
                                         if (!getUnclassifiedBoardsProcessedItems[teamId][boardId]) {
                                             getUnclassifiedBoardsProcessedItems[teamId][boardId] = { id: boardId, classification_label: 'not_yet_classified', boardUrl: `https://miro.com/app/board/${boardId}/`, team: teamId };
                                         }
-                                        else { debugger; console.log('######### WARNING: Repeated Board ID found - Please check! #######') }
                                     }
                                     if (getUnclassifiedBoardsErrors[value.url]) {
                                         delete getUnclassifiedBoardsErrors[value.url];
