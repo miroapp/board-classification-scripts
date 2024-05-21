@@ -14,7 +14,7 @@ __Note__: If the person running the script is not a __Company Admin__ in your or
 
 1.1. If you already have Python 3.x.x installed in your local machine, you may skip this step.
 
-1.2. If you do not have Python 3.x.x installed, you'll need to install it. You can download the latest version of Python from the official Python website [here](https://www.python.org/downloads/). (Feel free to use the command line to download and install Python 3.x.x if preferred).
+1.2. If you do not have Python 3.x.x installed, you'll need to install it. You can download the latest version of Python from the [official Python website](https://www.python.org/downloads/). (Feel free to use the command line to download and install Python 3.x.x if preferred).
 
 ## Step 2. Create directory for your script files
 
