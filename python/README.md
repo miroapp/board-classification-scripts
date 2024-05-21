@@ -74,8 +74,7 @@ __Note__: If the person running the script is not a __Company Admin__ in your or
 
 6.2. Run `pip3 install -r requirements.txt`
 
-6.2. Run `python get_labels.py` (or `python3 get_labels.py`)
-This script will show you the existing classification labels in your Miro account. It will also create a CSV file called `classification_labels.csv` within the folder `board_classification_labels` in the directory where the script files lives in your local machine.
+6.2. Run `python get_labels.py` (or `python3 get_labels.py`). This script will show you the existing classification labels in your Miro account. It will also create a CSV file called `classification_labels.csv` within the folder `board_classification_labels` in the directory where the script files lives in your local machine.
 
 6.3. Enter the information asked by the script when prompted:
   * `Enter your Miro Organization ID`: enter your Miro Organization ID (see step 5.7) and hit "Enter"
