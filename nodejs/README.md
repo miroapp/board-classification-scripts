@@ -90,10 +90,15 @@ This script will show you the existing classification labels in your Miro accoun
 7.1. Run `node classification.js`. The `classification.js` script allows you to run the script in __TEST MODE__ so you can test it without applying any changes. To run the script in __TEST MODE__ simply respond to this particular question when prompted by the script
 
 7.2. Enter the information asked by the script when prompted:
+
   * `Is this a TEST Run? (y/n)`: Respond `y` if you want to run the script in __TEST MODE__ and hit "Enter". If you are ready to apply changes, enter `n` and the script will proceed to update the classification label for unclassified boards only. Already classified boards will not be updated.
+    
   * `Enter the ID of the "Classification Label" to be used to classify the unclassified Boards`: enter the ID of the desired classification label that should be applied to classify the unclassified boards (see step 6.4) and hit "Enter"
+    
   * `Enter your Miro Organization ID`: enter your Miro Organization ID (see step 5.7) and hit "Enter"
+    
   * `Enter your Miro REST API Token`: Enter your Miro REST API Token (see step 5.6) and hit "Enter"
+    
   * `Should this script create a full report of existing boards? (y = slower / n = faster)`: choose whether you want to have detailed reports of existing boards and their current classification labels before applying changes or not and hit "Enter"
 
 <img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/classification_script_questions_screenshot.png" alt="classification script screenshot" width="903" />
