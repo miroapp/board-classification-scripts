@@ -536,6 +536,16 @@ async function runClassificationScript() {
         teams[teamId].all_boards.push(...idsToAdd);
         results.push(...initialData.data);
 
+        for(let i=0; i < initialData.data.length; i++) {
+            if (!boardsObject[initialData.data[i].id]) {
+              boardsObject[initialData.data[i].id] = {
+                board_id: initialData.data[i].id,
+                board_name: initialData.data[i].name,
+                classification_label: 'unknown',
+              };
+            }
+          }
+
         while (processedItems < totalItems) {
             console.log(`ProcessedItems --> ${processedItems} out of ${totalItems} in Team ID teamId (Team ${teamIndex} out of ${teamsLength})`);
             console.log(`....Getting further Boards of Team ${teamId} asynchronously in batches of max ${numberOfRequests} per batch`);
@@ -606,6 +616,15 @@ async function runClassificationScript() {
                                 teams[teamId].all_boards.push(...idsToAdd);
                                 processedItems += batchData.data.length;
                                 processedUrls.push(value.url);
+                                for(let i=0; i < batchData.data.length; i++) {
+                                    if (!boardsObject[batchData.data[i].id]) {
+                                      boardsObject[batchData.data[i].id] = {
+                                        board_id: batchData.data[i].id,
+                                        board_name: batchData.data[i].name,
+                                        classification_label: 'unknown',
+                                      };
+                                    }
+                                  }
                                 if (getBoardsErrors[value.url]) {
                                     delete getBoardsErrors[value.url];
                                 }
@@ -683,15 +702,6 @@ async function runClassificationScript() {
                     }
                 }
                 boards.push(...teams[Object.keys(teams)[i]].all_boards)
-            }
-
-            for(var i=0; i < boards.length; i++) {
-                if (!boardsObject[boards[i]]) {
-                    boardsObject[boards[i]] = {
-                        board_id: boards[i],
-                        classification_label: 'unknown'
-                    };
-                }
             }
         }
 
