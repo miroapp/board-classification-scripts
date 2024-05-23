@@ -112,16 +112,32 @@ let getBoardsErrors = {};
 async function runClassificationScript() {
 
     function jsonToCsv(jsonData) {
+      if (jsonData) {
         let csv = '';
         // Get the headers
         let headers = Object.keys(jsonData[Object.keys(jsonData)[0]]);
         csv += headers.join(',') + '\n';
+        
+        // Helper function to escape CSV special characters
+        const escapeCSV = (value) => {
+          if (typeof value === 'string') {
+            if (value.includes('"')) {
+              value = value.replace(/"/g, '""');
+            }
+            if (value.includes(',') || value.includes('"') || value.includes('\n')) {
+              value = `"${value}"`;
+            }
+          }
+          return value;
+        };
+    
         // Add the data
         Object.keys(jsonData).forEach(function(row) {
-            let data = headers.map(header => JSON.stringify(jsonData[row][header])).join(','); // Add JSON.stringify statement
-            csv += data + '\n';
+          let data = headers.map(header => escapeCSV(jsonData[row][header])).join(',');
+          csv += data + '\n';
         });
         return csv;
+      }
     }
 
     function getStringsBetween(text, start, end) {
