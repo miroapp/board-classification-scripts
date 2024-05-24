@@ -537,13 +537,12 @@ async def call_api(url, options):
                 }
             except Exception as e:
                 return {
-                    'error': {
                         'status': response.status,
                         'status_text': response.reason,
                         'request_url': str(response.url),
-                        'error_details': str(e)
+                        'error_details': str(e),
+                        'rate_limit_remaining': 'error'
                     }
-                }
 
 async def get_teams(session, org_id, cursor=None):
     global teams
@@ -687,7 +686,7 @@ async def get_teams(session, org_id, cursor=None):
         }
         get_teams_errors.append(result)
         print('====== ERROR: Could not get all Teams, please check the "getTeamsErrors" array to learn what the problem is ======')
-        print(f'Script end time: {datetime.now()}')
+        print(f'Script end time: {datetime.datetime.now()}')
         print(f'********** END OF SCRIPT  {("(IN TEST MODE)" if IS_TEST else "")} **********')
         return False
 
