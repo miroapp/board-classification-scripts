@@ -677,17 +677,17 @@ async def get_teams(session, org_id, cursor=None):
         await hold_script_execution(31000)
         await get_teams(session, org_id, cursor)
     else:
-        print('====== see errors array below ======')
-        print(list_teams)
+        print('====== ERROR - See details below ======')
+        print(json.dumps(list_teams, indent=4))
         result = {
             'team_id': teams,
-            'response_error': json.dumps(list_teams),
+            'response_error': json.dumps(list_teams, indent=4),
             'full_error': list_teams
         }
         get_teams_errors.append(result)
-        print('====== ERROR: Could not get all Teams, please check the "getTeamsErrors" array to learn what the problem is ======')
+        print('====== ERROR: Could not get all Teams, please check the errors above to learn what the problem is ======')
         print(f'Script end time: {datetime.datetime.now()}')
-        print(f'********** END OF SCRIPT  {("(IN TEST MODE)" if IS_TEST else "")} **********')
+        print(f'********** END OF SCRIPT {("(IN TEST MODE)" if IS_TEST else "")} **********')
         return False
 
 async def init():
