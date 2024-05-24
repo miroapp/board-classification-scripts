@@ -40,7 +40,7 @@ __Note__: If the person running the script is not a __Company Admin__ in your or
 
 <img src="https://help.miro.com/hc/article_attachments/4775661957266" alt="Accept app terms screenshot" width="700" />
 
-5.2. Insert the desired app name (e.g. Classification Scripts), select your Developer team for the application and click on __Create app__.
+5.2. Insert the desired app name (e.g. __Board Classification Script__), select your Developer team for the application and click on __Create app__.
 
 <img src="https://help.miro.com/hc/article_attachments/4775666891026" alt="Create app screenshot" width="502" />
 
