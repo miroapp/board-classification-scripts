@@ -1,7 +1,6 @@
 import asyncio
 import json
 import aiohttp
-import asyncio
 import os
 
 # Define global variables to store answers
