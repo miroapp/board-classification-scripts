@@ -157,7 +157,7 @@ async def set_board_classification(team_id, team_index, teams_length):
 
         print(f'# Setting Board Classification ONLY for "NOT YET CLASSIFIED" Boards within Team {team_id} (Team {team_index + 1} out of {teams_length}) - Already classified Boards will not be updated ...')
         api_url = f'https://api.miro.com/v2/orgs/{MIRO_ORG_ID}/teams/{team_id}/data-classification'
-        remaining_items = len(total_items) - len(set_board_classification_processed_items[team_id])
+        remaining_items = total_items - len(set_board_classification_processed_items[team_id])
 
         if len(set_board_classification_errors) == 0:
             batch_size = 1
