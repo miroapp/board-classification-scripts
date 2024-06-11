@@ -86,7 +86,7 @@ async def hold_script_execution(ms):
     print('**** Resuming script execution ***')
 
 async def iterate_through_boards(teams_array, is_error_retry, set_classification):
-    global boards, boards_object, get_unclassified_boards_errors, error_retry_count, GET_CLASSIFICATION_REQUESTS_BATCH_NUMBER, set_board_classification_errors
+    global teams, boards, boards_object, get_unclassified_boards_errors, error_retry_count, GET_CLASSIFICATION_REQUESTS_BATCH_NUMBER, set_board_classification_errors
 
     if not set_classification and not is_error_retry:
         summary = {}
