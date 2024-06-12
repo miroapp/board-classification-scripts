@@ -47,6 +47,7 @@ __Note__: If the person running the script is not a __Company Admin__ in your or
 5.3. On the app page, scroll down and select the following scopes of access to grant to your REST API token:<br><br>
   `boards:read`<br>
   `boards:write`<br>
+  `organizations:read`<br>
   `organizations:teams:read`<br>
 
 <img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/rest_app_scopes.png" width="700" />
