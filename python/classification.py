@@ -613,18 +613,18 @@ async def get_teams(session, org_id, cursor=None):
                         json.dump(set_board_classification_exclusion_list, file, indent=2)
 
                 if teams:
-                    with open('classification_output_files/full_report_by_team_(before_update).json', 'w') as file:
+                    with open('classification_output_files/full_report_by_team_(current_state).json', 'w') as file:
                         json.dump(teams, file, indent=2)
 
                 if boards_object:
-                    with open('classification_output_files/full_report_by_board_(before_update).json', 'w') as file:
+                    with open('classification_output_files/full_report_by_board_(current_state).json', 'w') as file:
                         json.dump(boards_object, file, indent=2)
                     content = json_to_csv(boards_object)
-                    with open('classification_output_files/full_report_by_board_(before_update).csv', 'w') as file:
+                    with open('classification_output_files/full_report_by_board_(current_state).csv', 'w') as file:
                         file.write(content)
 
                 if boards_to_classify:
-                    with open('classification_output_files/boards_to_classify_(before_update).json', 'w') as file:
+                    with open('classification_output_files/boards_to_classify_(current_state).json', 'w') as file:
                         json.dump(boards_to_classify, file, indent=2)
 
             print(f'====== Total Boards successfully classified --> {("0 (TEST MODE IS ON)" if IS_TEST else boards_successfully_classified)} ======')
