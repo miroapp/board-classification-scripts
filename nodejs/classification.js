@@ -831,7 +831,7 @@ async function runClassificationScript() {
                 await iterateThroughTeams(teams);
 
                 console.log(`Script end time: ${new Date()}`);
-                console.log('********** FINAL SUMMARY **********');
+                console.log('\n\n********** FINAL SUMMARY **********');
                 console.log('For further details review the "classification_output_files" folder within your local directory where this script lives');
                 var directory = 'classification_output_files';
                 if (!fs.existsSync(directory)) {
@@ -900,7 +900,7 @@ async function runClassificationScript() {
                 fs.writeFileSync(filePath, final_summary_csv);
 
                 console.log(`# Next step: Please go to "https://miro.com/app/settings/company/${MIRO_ORG_ID}/data-classification/" to confirm that there are no Boards left to classify (fastest option) or re-run this script with TEST MODE turned ON (slower option)`);
-                console.log('********** END OF SCRIPT **********');
+                console.log('********** END OF SCRIPT **********\n\n');
             }
         }
         else if (listTeams.rate_limit_remaining === 0) {
