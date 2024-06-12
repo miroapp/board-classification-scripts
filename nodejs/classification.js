@@ -861,19 +861,19 @@ async function runClassificationScript() {
                     }
 
                     content = JSON.stringify(teams, null, 2);
-                    filePath = 'classification_output_files/full_report_by_team_(before_update).json';
+                    filePath = 'classification_output_files/full_report_by_team_(current_state).json';
                     fs.writeFileSync(filePath, content);
 
                     content = JSON.stringify(boardsObject, null, 2);
-                    filePath = 'classification_output_files/full_report_by_board_(before_update).json';
+                    filePath = 'classification_output_files/full_report_by_board_(current_state).json';
                     fs.writeFileSync(filePath, content);
 
                     content = JSON.stringify(boardsToClassify, null, 2);
-                    filePath = 'classification_output_files/boards_to_classify_(before_update).json';
+                    filePath = 'classification_output_files/boards_to_classify_(current_state).json';
                     fs.writeFileSync(filePath, content);
 
                     content = jsonToCsv(boardsObject);
-                    filePath = 'classification_output_files/full_report_by_board_(before_update).csv';
+                    filePath = 'classification_output_files/full_report_by_board_(current_state).csv';
                     fs.writeFileSync(filePath, content);
                 }
 
