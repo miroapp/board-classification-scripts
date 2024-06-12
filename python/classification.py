@@ -591,7 +591,7 @@ async def get_teams(session, org_id, cursor=None):
             await iterate_through_teams(teams)
 
             print(f'Script end time: {datetime.datetime.now()}')
-            print('********** FINAL SUMMARY **********')
+            print('\n\n********** FINAL SUMMARY **********')
             print('For further details review the "classification_output_files" folder within your local directory where this script lives')
             directory = 'classification_output_files'
             if not os.path.exists(directory):
@@ -670,7 +670,7 @@ async def get_teams(session, org_id, cursor=None):
 
             if not IS_TEST:
                 print(f'# Next step: Please go to "https://miro.com/app/settings/company/{MIRO_ORG_ID}/data-classification/" to confirm that there are no Boards left to classify (fastest option) or re-run this script with TEST MODE turned ON (slower option)')
-            print('********** END OF SCRIPT **********')
+            print('********** END OF SCRIPT **********\n\n')
 
     elif list_teams['rate_limit_remaining'] == '0':
         await hold_script_execution(31000)
