@@ -878,7 +878,7 @@ async function runClassificationScript() {
                     fs.writeFileSync(filePath, content);
                 }
 
-                console.log(`====== Total Boards successfully classified --> ${(IS_TEST ? '0 (TEST MODE IS ON)' : boardsClasifiedAfterUpdate} ======`);
+                console.log(`====== Total Boards successfully classified --> ${(IS_TEST ? '0 (TEST MODE IS ON)' : boardsClasifiedAfterUpdate)} ======`);
                 console.log(`====== Total Teams where "NO YET CLASSIFIED" boards were successfully classified --> ${(IS_TEST ? ' 0 (TEST MODE IS ON))' : Object.keys(teamsSuccessfullyClassified).length)} ======`);
                 if (Object.keys(getUnclassifiedBoardsExclusionList).length > 0) {
                     console.log(`====== There are URLs in the "getUnclassifiedBoardsExclusionList" object. Plese check --> `);
