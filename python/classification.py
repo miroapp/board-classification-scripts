@@ -53,8 +53,8 @@ def json_to_csv(json_data):
             if isinstance(value, str):
                 if '"' in value:
                     value = value.replace('"', '""')
-                if ',' in value or '"' in value or '\n' in value:
-                    value = f'"{value}"'
+                # if ',' in value or '"' in value or '\n' in value:
+            value = f'"{value}"'
             return value
         
         # Add the data
