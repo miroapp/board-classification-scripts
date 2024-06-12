@@ -839,6 +839,7 @@ async function runClassificationScript() {
                 }
                 var content;
                 var filePath;
+                var boardsClasifiedAfterUpdate = (IS_TEST ? '0 (TEST MODE IS ON)' : (boardsSuccessfullyClassified > boardsToClassify.length ? boardsToClassify.length : boardsSuccessfullyClassified));
                 if (DOWNLOAD_FULL_REPORT_OF_EXISTING_BOARDS) {
                     console.log(`====== Total Boards to classify --> ${boardsToClassify.length} ======`);
                     if (Object.keys(getUnclassifiedBoardsExclusionList).length > 0) {
@@ -877,7 +878,7 @@ async function runClassificationScript() {
                     fs.writeFileSync(filePath, content);
                 }
 
-                console.log(`====== Total Boards successfully classified --> ${(IS_TEST ? '0 (TEST MODE IS ON)' : boardsSuccessfullyClassified)} ======`);
+                console.log(`====== Total Boards successfully classified --> ${(IS_TEST ? '0 (TEST MODE IS ON)' : boardsClasifiedAfterUpdate} ======`);
                 console.log(`====== Total Teams where "NO YET CLASSIFIED" boards were successfully classified --> ${(IS_TEST ? ' 0 (TEST MODE IS ON))' : Object.keys(teamsSuccessfullyClassified).length)} ======`);
                 if (Object.keys(getUnclassifiedBoardsExclusionList).length > 0) {
                     console.log(`====== There are URLs in the "getUnclassifiedBoardsExclusionList" object. Plese check --> `);
@@ -894,8 +895,7 @@ async function runClassificationScript() {
 
                 var final_summary_csv = 'total_boards_to_classify,total_boards_successfully_classified,total_teams_where_unclassified_boards_were_successfully_classified,observation\n';
                 var boardsToClassifySummaryString = boardsToClassify.length + (Object.keys(getUnclassifiedBoardsExclusionList).length > 0 ? '(Possibly' + (boardsToClassify.length + Object.keys(getUnclassifiedBoardsExclusionList).length) + ')' : '');
-                var boardsClasifiedAfterUpdate = (Object.keys(teamsSuccessfullyClassified).length > boardsToClassify.length ? boardsToClassify.length : Object.keys(teamsSuccessfullyClassified).length);
-                final_summary_csv += `${boardsToClassifySummaryString},${(IS_TEST ? ' 0 (TEST MODE IS ON)' : boardsSuccessfullyClassified)},${(IS_TEST ? ' 0 (TEST MODE IS ON)' : boardsClasifiedAfterUpdate)},${(IS_TEST ? 'TEST MODE WAS ON - No changes were performed' : (Object.keys(getUnclassifiedBoardsExclusionList).length > 0 ? `There are/were ${Object.keys(getUnclassifiedBoardsExclusionList).length} Boards that the script could not retrieve the label data for. It's possible that these ${Object.keys(getUnclassifiedBoardsExclusionList).length} Boards were also unclassified making a total of ${(boardsToClassify.length + Object.keys(getUnclassifiedBoardsExclusionList).length)} Boards to classify. These Boards are found in the file "board_classification_exclusion_list.json"` : ''))}`;
+                final_summary_csv += `${boardsToClassifySummaryString},${(IS_TEST ? ' 0 (TEST MODE IS ON)' : boardsClasifiedAfterUpdate)},${(IS_TEST ? ' 0 (TEST MODE IS ON)' : Object.keys(teamsSuccessfullyClassified).length)},${(IS_TEST ? 'TEST MODE WAS ON - No changes were performed' : (Object.keys(getUnclassifiedBoardsExclusionList).length > 0 ? `There are/were ${Object.keys(getUnclassifiedBoardsExclusionList).length} Boards that the script could not retrieve the label data for. It's possible that these ${Object.keys(getUnclassifiedBoardsExclusionList).length} Boards were also unclassified making a total of ${(boardsToClassify.length + Object.keys(getUnclassifiedBoardsExclusionList).length)} Boards to classify. These Boards are found in the file "board_classification_exclusion_list.json"` : ''))}`;
                 filePath = 'classification_output_files/final_summary.csv';
                 fs.writeFileSync(filePath, final_summary_csv);
 
