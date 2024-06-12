@@ -899,7 +899,7 @@ async function runClassificationScript() {
                 filePath = 'classification_output_files/final_summary.csv';
                 fs.writeFileSync(filePath, final_summary_csv);
 
-                console.log(`# Next step: Please go to "https://miro.com/app/settings/company/${MIRO_ORG_ID}/data-classification/" to confirm that there are no Boards left to classify (fastest option) or re-run this script with TEST MODE turned ON (slower option)`);
+                console.log(`\n# Next step: Please go to "https://miro.com/app/settings/company/${MIRO_ORG_ID}/data-classification/" to confirm that there are no Boards left to classify (fastest option) or re-run this script with TEST MODE turned ON (slower option)`);
                 console.log('********** END OF SCRIPT **********\n\n');
             }
         }
