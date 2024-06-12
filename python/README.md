@@ -50,7 +50,7 @@ __Note__: If the person running the script is not a __Company Admin__ in your or
   `organizations:read`<br>
   `organizations:teams:read`<br>
 
-<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/rest_app_scopes.png" width="700" />
+<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/app_scopes.png" width="700" />
 
 5.4. Click on __Install app and get OAuth token__
 
