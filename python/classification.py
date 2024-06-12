@@ -145,7 +145,7 @@ async def iterate_through_boards(teams_array, is_error_retry, set_classification
             error_retry_count = 0
 
 async def set_board_classification(team_id, team_index, teams_length):
-    global API_TOKEN, MIRO_ORG_ID, teams, set_board_classification_processed_items, set_board_classification_errors, boards_object, boards_to_classify, global_processed_urls, set_board_classification_remaining_teams, set_board_classification_exclusion_list, error_retry_count
+    global API_TOKEN, MIRO_ORG_ID, teams, set_board_classification_processed_items, set_board_classification_errors, boards_object, boards_to_classify, global_processed_urls, set_board_classification_remaining_teams, set_board_classification_exclusion_list, error_retry_count, boards_successfully_classified
     if not IS_TEST:
         results = []
         total_items = len(teams)
@@ -157,14 +157,14 @@ async def set_board_classification(team_id, team_index, teams_length):
 
         print(f'# Setting Board Classification ONLY for "NOT YET CLASSIFIED" Boards within Team {team_id} (Team {team_index + 1} out of {teams_length}) - Already classified Boards will not be updated ...')
         api_url = f'https://api.miro.com/v2/orgs/{MIRO_ORG_ID}/teams/{team_id}/data-classification'
-        remaining_items = total_items - len(set_board_classification_processed_items[team_id])
+        #remaining_items = total_items - len(set_board_classification_processed_items[team_id])
 
         if len(set_board_classification_errors) == 0:
             batch_size = 1
             batch_urls = [api_url]
         else:
             if set_board_classification_errors[list(set_board_classification_errors.keys())[-1]]['error'] == 429:
-                print(f"Processed Boards: {len(set_board_classification_processed_items[team_id])} out of {len(total_items)} in Team {team_id} - Team {team_index + 1} out of {teams_length} teams")
+                print(f"Processed Boards: {len(set_board_classification_processed_items[team_id])} out of {total_items} in Team {team_id} - Team {team_index + 1} out of {teams_length} teams")
                 await hold_script_execution(39000)
 
             batch_size = len(set_board_classification_errors)
@@ -186,17 +186,25 @@ async def set_board_classification(team_id, team_index, teams_length):
             'Authorization': f'Bearer {API_TOKEN}'
         }
 
+        payload = {
+            'notClassifiedOnly': True,
+            'labelId': DESIRED_CLASSIFICATION_LABEL_ID
+        }
+
         try:
             async with aiohttp.ClientSession() as batch_set_board_classification_session:
                 print("==== WITHIN THE BATCHES HTTP REQUESTS - Set Board Classification ======")
-                batch_responses = await asyncio.gather(*[batch_set_board_classification_session.get(url, headers=req_headers) for url in batch_urls], return_exceptions=True)
+                batch_responses = await asyncio.gather(*[batch_set_board_classification_session.patch(url, headers=req_headers, json=payload) for url in batch_urls], return_exceptions=True)
 
                 for response in batch_responses:
                     url = str(response.url)
                     status = response.status
+                    print(f'Result of PATCH call on Team {team_id} (Team {team_index + 1} out of {teams_length}) --> {status}')
                     if status == 200:
                         error_retry_count = 0
                         batch_data = await response.json()
+                        print(batch_data)
+                        print("=======================================================")
                         teams_successfully_classified[team_id] = {
                             'team_id': team_id,
                             'team_name': teams[team_id]['team_name'],
@@ -218,7 +226,7 @@ async def set_board_classification(team_id, team_index, teams_length):
                             global_processed_urls[url] = {'requestStatus': 'valid response received'}
                         if url not in processed_urls:
                             processed_urls.append(url)
-                        print(f'### All "NOT YET CLASSIFIED" Boards in Team {team_id} (Team {team_index + 1} out of {len(total_items)} were successfully updated - (Number of Updated Boards: {batch_data["numberUpdatedBoards"]}) - Already classified Boards were not updated ####')
+                        print(f'### All "NOT YET CLASSIFIED" Boards in Team {team_id} (Team {team_index + 1} out of {total_items} were successfully updated - (Number of Updated Boards: {batch_data["numberUpdatedBoards"]}) - Already classified Boards were not updated ####')
 
                     elif isinstance(response, Exception):
                         set_board_classification_errors[url] = {'team': team_id, 'url': url, 'error': str(response)}
@@ -627,7 +635,8 @@ async def get_teams(session, org_id, cursor=None):
                     with open('classification_output_files/boards_to_classify_(current_state).json', 'w') as file:
                         json.dump(boards_to_classify, file, indent=2)
 
-            print(f'====== Total Boards successfully classified --> {("0 (TEST MODE IS ON)" if IS_TEST else boards_successfully_classified)} ======')
+            boards_successfully_classified_after_update = ('0 (TEST MODE IS ON)' if IS_TEST else (len(boards_to_classify) if boards_successfully_classified > len(boards_to_classify) else boards_successfully_classified))
+            print(f'====== Total Boards successfully classified --> {("0 (TEST MODE IS ON)" if IS_TEST else boards_successfully_classified_after_update)} ======')
             print(f'====== Total Teams where "NO YET CLASSIFIED" boards were successfully classified --> {("0 (TEST MODE IS ON)" if IS_TEST else len(teams_successfully_classified))} ======')
 
             if get_unclassified_boards_exclusion_list:
@@ -652,7 +661,7 @@ async def get_teams(session, org_id, cursor=None):
                 observation = "TEST MODE WAS ON - No changes were performed"
             else:
                 boards_to_classify_summary = str(boards_to_classify)
-                successfully_classified = str(boards_successfully_classified)
+                successfully_classified = boards_successfully_classified_after_update
                 teams_classified = str(len(teams_successfully_classified))
                 if get_unclassified_boards_exclusion_list:
                     observation = (
