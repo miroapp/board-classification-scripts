@@ -124,10 +124,8 @@ async function runClassificationScript() {
             if (value.includes('"')) {
               value = value.replace(/"/g, '""');
             }
-            if (value.includes(',') || value.includes('"') || value.includes('\n')) {
-              value = `"${value}"`;
-            }
           }
+          value = `"${value}"`;
           return value;
         };
     
