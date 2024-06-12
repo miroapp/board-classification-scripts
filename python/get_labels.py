@@ -100,11 +100,11 @@ async def get_labels(session, org_id):
             os.makedirs(directory)
 
         with open('board_classification_labels/classification_labels.json', 'w') as file:
-            file.write(get_classification_labels_array)
+            file.write(str(get_classification_labels_array))
 
         content = json_to_csv(get_classification_labels_array)
         with open('board_classification_labels/classification_labels.csv', 'w') as file:
-            file.write(content)
+            file.write(str(content))
         
         print(f'# Next steps:\n# 1. Review the classification labels from the list above (or open the "classification_labels.csv" file within the folder "board_classification_labels" in the directory where this script lives)\n# 2. Identify the label you want to use to classify the unclassified boards (you will be asked for the ID of the desired label on step 3)\n# 3. Run: python3 get_labels.py')
         print('===========================================')
