@@ -21,32 +21,32 @@ def json_to_csv(json_data):
         data = ','.join(json.dumps(row[header]) for header in headers)
         csv_data += data + '\n'
     
-#     return csv_data
+    return csv_data
 
-def json_to_csv(json_data):
-    if json_data:
-        csv = ''
-        # Get the headers
-        headers = list(json_data[0].keys())
-        csv += ','.join(headers) + '\n'
+# def json_to_csv(json_data):
+#     if json_data:
+#         csv = ''
+#         # Get the headers
+#         headers = list(json_data[0].keys())
+#         csv += ','.join(headers) + '\n'
         
-        # Helper function to escape CSV special characters
-        def escape_csv(value):
-            if isinstance(value, (int, float)):
-                value = str(value)
-            if isinstance(value, str):
-                if '"' in value:
-                    value = value.replace('"', '""')
-                # if ',' in value or '"' in value or '\n' in value:
-            value = f'"{value}"'
-            return value
+#         # Helper function to escape CSV special characters
+#         def escape_csv(value):
+#             if isinstance(value, (int, float)):
+#                 value = str(value)
+#             if isinstance(value, str):
+#                 if '"' in value:
+#                     value = value.replace('"', '""')
+#                 # if ',' in value or '"' in value or '\n' in value:
+#             value = f'"{value}"'
+#             return value
         
-        # Add the data
-        for row in json_data:
-            data = ','.join(escape_csv(json_data[row][header]) for header in headers)
-            csv += data + '\n'
+#         # Add the data
+#         for row in json_data:
+#             data = ','.join(escape_csv(json_data[row][header]) for header in headers)
+#             csv += data + '\n'
         
-        return csv
+#         return csv
 
 async def call_api(url, options):
     async def manage_errors(response):
