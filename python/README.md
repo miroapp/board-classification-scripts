@@ -113,6 +113,22 @@ After you have confirmed all unclassified boards have been successfully classifi
 
 <img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/delete_app_screenshot.png" alt="Delete app screenshot" width="903" />
 
+## Troubleshootinh
+
+* In case you get the error `NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+` run the below commands:
+
+`pip3 uninstall urllib3`
+`pip3 install urllib3==1.26.7`
+
+* In case you get the error on Mac `raise ClientConnectorCertificateError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorCertificateError: Cannot connect to host api.miro.com:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')]` run the below commands:
+
+`python3 --version`
+
+Note the version number and use it to run the command below (replace `{version_no}` with the first digit, dot and 2 decimals of the version number, e.g. 3.12)
+
+`/Applications/Python\ {version_no}/Install\ Certificates.command`
+
 ## Support
 
 If you have any questions or need assistance setting up this application, please reach out to your Miro Customer Success Manager, Onboarding Consultant, Technical Architect or dedicated Miro Solutions Engineer.
