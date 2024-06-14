@@ -115,12 +115,12 @@ After you have confirmed all unclassified boards have been successfully classifi
 
 ## Troubleshootinh
 
-* In case you get the error `NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+` run the below commands:
+- In case you get the error `NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+` run the below commands:
 
 `pip3 uninstall urllib3`
 `pip3 install urllib3==1.26.7`
 
-* In case you get the error on Mac `raise ClientConnectorCertificateError(req.connection_key, exc) from exc
+- In case you get the error on Mac `raise ClientConnectorCertificateError(req.connection_key, exc) from exc
 aiohttp.client_exceptions.ClientConnectorCertificateError: Cannot connect to host api.miro.com:443 ssl:True [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')]` run the below commands:
 
 `python3 --version`
