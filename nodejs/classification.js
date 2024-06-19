@@ -837,8 +837,9 @@ async function runClassificationScript() {
                 }
                 var content;
                 var filePath;
-                var boardsClasifiedAfterUpdate = (IS_TEST ? '0 (TEST MODE IS ON)' : (boardsSuccessfullyClassified > boardsToClassify.length ? boardsToClassify.length : boardsSuccessfullyClassified));
+                var boardsClasifiedAfterUpdate = (IS_TEST ? '0 (TEST MODE IS ON)' : boardsSuccessfullyClassified);
                 if (DOWNLOAD_FULL_REPORT_OF_EXISTING_BOARDS) {
+                    boardsClasifiedAfterUpdate = (IS_TEST ? '0 (TEST MODE IS ON)' : (boardsSuccessfullyClassified > boardsToClassify.length ? boardsToClassify.length : boardsSuccessfullyClassified));
                     console.log(`====== Total Boards to classify --> ${boardsToClassify.length} ======`);
                     if (Object.keys(getUnclassifiedBoardsExclusionList).length > 0) {
                         console.log(`***IMPORTANT: there were ${Object.keys(getUnclassifiedBoardsExclusionList).length} Boards where the script could not retrieve the label data. It's possible that these ${Object.keys(getUnclassifiedBoardsExclusionList).length} Boards were also unclassified making a total of ${(boardsToClassify.length + Object.keys(getUnclassifiedBoardsExclusionList).length)} Boards to classify. These Boards are found in the file "board_classification_exclusion_list.json" ======`);
@@ -891,9 +892,9 @@ async function runClassificationScript() {
                 filePath = 'classification_output_files/classification_result_(after_update).csv';
                 fs.writeFileSync(filePath, content);
 
-                var final_summary_csv = 'total_boards_to_classify,total_boards_successfully_classified,total_teams_where_unclassified_boards_were_successfully_classified,observation\n';
-                var boardsToClassifySummaryString = boardsToClassify.length + (Object.keys(getUnclassifiedBoardsExclusionList).length > 0 ? '(Possibly' + (boardsToClassify.length + Object.keys(getUnclassifiedBoardsExclusionList).length) + ')' : '');
-                final_summary_csv += `${boardsToClassifySummaryString},${(IS_TEST ? ' 0 (TEST MODE IS ON)' : boardsClasifiedAfterUpdate)},${(IS_TEST ? ' 0 (TEST MODE IS ON)' : Object.keys(teamsSuccessfullyClassified).length)},${(IS_TEST ? 'Test Mode was ON - No changes were performed' : (Object.keys(getUnclassifiedBoardsExclusionList).length > 0 ? `There are/were ${Object.keys(getUnclassifiedBoardsExclusionList).length} Boards that the script could not retrieve the label data for. It's possible that these ${Object.keys(getUnclassifiedBoardsExclusionList).length} Boards were also unclassified making a total of ${(boardsToClassify.length + Object.keys(getUnclassifiedBoardsExclusionList).length)} Boards to classify. These Boards are found in the file "board_classification_exclusion_list.json"` : ''))}`;
+                var final_summary_csv = (DOWNLOAD_FULL_REPORT_OF_EXISTING_BOARDS ? 'total_boards_to_classify,' : '') + 'total_boards_successfully_classified,total_teams_where_unclassified_boards_were_successfully_classified,observation\n';
+                var boardsToClassifySummaryString = (DOWNLOAD_FULL_REPORT_OF_EXISTING_BOARDS ? (boardsToClassify.length + (Object.keys(getUnclassifiedBoardsExclusionList).length > 0 ? '\n(Possibly' + (boardsToClassify.length + Object.keys(getUnclassifiedBoardsExclusionList).length) + '),' : ',')) : '');
+                final_summary_csv += `${boardsToClassifySummaryString}${(IS_TEST ? ' 0 (TEST MODE IS ON)' : boardsClasifiedAfterUpdate)},${(IS_TEST ? ' 0 (TEST MODE IS ON)' : Object.keys(teamsSuccessfullyClassified).length)},${(IS_TEST ? 'Test Mode was ON - No changes were performed' : (Object.keys(getUnclassifiedBoardsExclusionList).length > 0 ? `There are/were ${Object.keys(getUnclassifiedBoardsExclusionList).length} Boards that the script could not retrieve the label data for. It's possible that these ${Object.keys(getUnclassifiedBoardsExclusionList).length} Boards were also unclassified making a total of ${(boardsToClassify.length + Object.keys(getUnclassifiedBoardsExclusionList).length)} Boards to classify. These Boards are found in the file "board_classification_exclusion_list.json"` : ''))}`;
                 filePath = 'classification_output_files/final_summary.csv';
                 fs.writeFileSync(filePath, final_summary_csv);
 
