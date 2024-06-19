@@ -635,7 +635,18 @@ async def get_teams(session, org_id, cursor=None):
                     with open('classification_output_files/boards_to_classify_(current_state).json', 'w') as file:
                         json.dump(boards_to_classify, file, indent=2)
 
-            boards_successfully_classified_after_update = ('0 (TEST MODE IS ON)' if IS_TEST else (len(boards_to_classify) if boards_successfully_classified > len(boards_to_classify) else boards_successfully_classified))
+            #boards_successfully_classified_after_update = ('0 (TEST MODE IS ON)' if IS_TEST else (len(boards_to_classify) if boards_successfully_classified > len(boards_to_classify) else boards_successfully_classified))
+
+            # Construct boardsToClassifySummaryString
+            if DOWNLOAD_FULL_REPORT_OF_EXISTING_BOARDS:
+                unclassified_count = len(getUnclassifiedBoardsExclusionList)
+                if unclassified_count > 0:
+                    boardsToClassifySummaryString = f"{len(boardsToClassify)}\n(Possibly{len(boardsToClassify) + unclassified_count}),"
+                else:
+                    boardsToClassifySummaryString = f"{len(boardsToClassify)},"
+            else:
+                boardsToClassifySummaryString = ''
+            
             print(f'====== Total Boards successfully classified --> {("0 (TEST MODE IS ON)" if IS_TEST else boards_successfully_classified_after_update)} ======')
             print(f'====== Total Teams where "NO YET CLASSIFIED" boards were successfully classified --> {("0 (TEST MODE IS ON)" if IS_TEST else len(teams_successfully_classified))} ======')
 
@@ -651,16 +662,18 @@ async def get_teams(session, org_id, cursor=None):
                 with open('classification_output_files/classification_result_(after_update).csv', 'w') as file:
                     file.write(content)
 
-            final_summary_csv = 'total_boards_to_classify,total_boards_successfully_classified,total_teams_where_unclassified_boards_were_successfully_classified,observation\n'
+            # Construct final_summary_csv
+            final_summary_csv = ('total_boards_to_classify,' if DOWNLOAD_FULL_REPORT_OF_EXISTING_BOARDS else '') + \'total_boards_successfully_classified,total_teams_where_unclassified_boards_were_successfully_classified,observation\n'
             boards_to_classify_summary_string = str(len(boards_to_classify)) + (f'(Possibly{len(boards_to_classify) + len(get_unclassified_boards_exclusion_list)})' if get_unclassified_boards_exclusion_list else '')
             # final_summary_csv += f'{boards_to_classify_summary_string},{("0 (TEST MODE IS ON)" if IS_TEST else boards_successfully_classified)},{("0 (TEST MODE IS ON)" if IS_TEST else len(teams_successfully_classified))},{("Test mode was ON - No changes were performed" if IS_TEST else (f"There are {len(get_unclassified_boards_exclusion_list)} Boards that the script could not retrieve the label for. Its possible that these {len(get_unclassified_boards_exclusion_list)} Boards were also unclassified making a total of {(len(boards_to_classify) + len(get_unclassified_boards_exclusion_list))} Boards to classify. These Boards are found in the file board_classification_exclusion_list.json" if get_unclassified_boards_exclusion_list else ''))}'
+            
             if IS_TEST:
                 boards_to_classify_summary = "0 (TEST MODE IS ON)"
                 successfully_classified = "0 (TEST MODE IS ON)"
                 teams_classified = "0 (TEST MODE IS ON)"
                 observation = "TEST MODE WAS ON - No changes were performed"
             else:
-                boards_to_classify_summary = str(boards_to_classify)
+                boards_to_classify_summary = str(boards_to_classify) + ','
                 successfully_classified = boards_successfully_classified_after_update
                 teams_classified = str(len(teams_successfully_classified))
                 if get_unclassified_boards_exclusion_list:
@@ -672,7 +685,7 @@ async def get_teams(session, org_id, cursor=None):
                 else:
                     observation = ""
 
-            final_summary_csv += f'{boards_to_classify_summary_string},{successfully_classified},{teams_classified},{observation}\n'
+            final_summary_csv += (f"{boards_to_classify_summary_string if DOWNLOAD_FULL_REPORT_OF_EXISTING_BOARDS else ''}" f"{successfully_classified},{teams_classified},{observation}\n")
 
             with open('classification_output_files/final_summary.csv', 'w') as file:
                 file.write(final_summary_csv)
