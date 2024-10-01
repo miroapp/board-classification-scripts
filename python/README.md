@@ -8,7 +8,7 @@ This repository contains scripts to bulk update the classification label for "un
 * You must be a __Company Admin__ in your Miro account, or at least the user generating the token must be a __Company Admin__ in your Miro account (see steps 3 to 5)
 * You must have the role __Content Admin__ assigned, or at least the user generating the token must have the role __Content Admin__ assigned (see step 4 below)
 
-__Note__: If the person running the script is not a __Company Admin__ in your organization's Miro account, please have a __Company Admin__ in your Miro account follow the __steps 3 to 5__. Once the token has been created, the Miro __Company Admin__ can provide the token to the user who will run the scripts to execute the changes.
+__Note__: If the person running the script is not a __Company Admin__ with the __Content Admin__ role in your organization's Miro account, please have a __Company Admin__ with the __Content Admin__ role in your Miro account follow the __steps 3 to 5__. Once the token has been created, the Miro __Company Admin__ with the __Content Admin__ role can provide the token to the user who will run the scripts to execute the changes.
 
 ## Step 1. Install Python
 
