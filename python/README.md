@@ -38,7 +38,7 @@ __Note__: If the person running the script is not a __Company Admin__ with the _
 
 5.1. To create a new application on your Miro Enterprise account using the Enterprise Developer team, navigate to __[Profile settings](https://help.miro.com/hc/en-us/articles/4408879513874-Profile-settings) > Your apps__, and click on __+ Create new app__.
 
-<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/Create_new_app.png" alt="Accept app terms screenshot" width="700" />
+<img src="https://miro-org.s3.eu-central-1.amazonaws.com/board_classification/Create_new_app.png" alt="Accept app terms screenshot" width="502" />
 
 5.2. Insert the desired app name (e.g. __Board Classification Script__), select your Developer team for the application and click on __Create app__.
 
